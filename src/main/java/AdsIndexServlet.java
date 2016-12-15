@@ -17,13 +17,16 @@ public class AdsIndexServlet extends HttpServlet {
 
         //get the list of ads from listAdsDao
         // make a variable that holds the result of calling all() method on ListAdsDao
-        ListAdsDao listAdsDao = new ListAdsDao();
-        List<Ad> ads = listAdsDao.all();
         // snd that data into the view
         // set parameter on the response
-
         // in the view, iterate across the list and output the ads
-        request.setAttribute("ads", ads);
+
+        //ListAdsDao listAdsDao = new ListAdsDao();
+        //List<Ad> ads = listAdsDao.all();
+
+        //request.setAttribute("ads", ads);
+
+        request.setAttribute("ads", DaoFactory.getAdsDao().all());
         request.getRequestDispatcher("ads/index.jsp").forward(request, response);
     }
 }
