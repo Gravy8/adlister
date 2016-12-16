@@ -35,12 +35,11 @@ public class MySQLAdsDao implements Ads {
             DriverManager.registerDriver(new Driver());
             Connection connection = DriverManager.getConnection(Config.getUrl(), Config.getUser(), Config.getPassword());
             Statement stmt = connection.createStatement();
-            stmt.executeUpdate(string);
+            stmt.execute(string);
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return null;
     }
 }
